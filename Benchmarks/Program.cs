@@ -1,4 +1,5 @@
-﻿using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Running;
 using System;
 
 namespace Benchmarks
@@ -7,7 +8,9 @@ namespace Benchmarks
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<MemoryBenchmarkerDemo>();
+            var summaryHS = BenchmarkRunner.Run<HighSpeedBenchmark>(new DebugInProcessConfig());
+            //var summary = BenchmarkRunner.Run<MemoryBenchmarkerDemo>();
+
         }
     }
 }
