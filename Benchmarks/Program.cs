@@ -8,7 +8,7 @@ namespace Benchmarks
     {
         static void Main(string[] args)
         {
-            var summaryHS = BenchmarkRunner.Run<HighSpeedBenchmark>(new DebugInProcessConfig());
+            var summaryHS = BenchmarkRunner.Run<HighSpeedBenchmark>();
             //var summary = BenchmarkRunner.Run<MemoryBenchmarkerDemo>();
 
         }
