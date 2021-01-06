@@ -13,8 +13,9 @@ namespace Benchmarks
             
             //demonstrates modify in place vs write result somewhere else and then replace the original (uses 2x as much memory)
             var summaryModifyInPaceVsSeparateStoreAndReplace = BenchmarkRunner.Run<ModifyInPlaceVsSeparateStore>();
+            
             //demonstrates packed vs unpacked / array of structs vs struct of arrays (WIP)
-            var summaryPackedVsUnpacked = BenchmarkRunner.Run<PackedVsUnpackedHotVsCold>();
+            //var summaryPackedVsUnpacked = BenchmarkRunner.Run<PackedVsUnpackedHotVsCold>();
 
             //DEBUGGING
             //var summaryModifyInPaceVsSeparateStoreAndReplace = BenchmarkRunner.Run<ModifyInPlaceVsSeparateStore>(new DebugInProcessConfig());

@@ -10,7 +10,7 @@ namespace Benchmarks
     //https://www.jacksondunstan.com/articles/3860
     public class ModifyInPlaceVsSeparateStore
     {
-        [Params(10000, 100000, 1000000)]
+        [Params(10000, 100000)]
         public int nr_of_elements;
         public Vector3D[] position;
         public Vector3D[] velocity;
@@ -54,6 +54,8 @@ namespace Benchmarks
 
 
         }
+
+
         [Benchmark]
         public void InPlace()
         {
@@ -63,15 +65,7 @@ namespace Benchmarks
                 
             }
         }
-        [Benchmark]
-        public void InStore()
-        {
-            for (int i = 0; i < nr_of_elements; i++)
-            {
-                newPosition[i] = position[i] * velocity[i];
 
-            }
-        }
         [Benchmark]
         public void InStoreAndSwap()
         {
@@ -98,6 +92,16 @@ namespace Benchmarks
             newPosition = new Vector3D[nr_of_elements];
         }
         [Benchmark]
+        public void InStoreNoSOR()
+        {
+            for (int i = 0; i < nr_of_elements; i++)
+            {
+                newPosition[i] = position[i] * velocity[i];
+
+            }
+
+        }
+        [Benchmark]
         public void InPlaceMethod()
         {
             for (int i = 0; i < nr_of_elements; i++)
@@ -107,7 +111,7 @@ namespace Benchmarks
             }
         }
         [Benchmark]
-        public void InStoreMethod()
+        public void InStoreMethodNoSOR()
         {
             for (int i = 0; i < nr_of_elements; i++)
             {
@@ -115,5 +119,20 @@ namespace Benchmarks
 
             }
         }
+        [Benchmark]
+        public void InStorMethodAndSwap()
+        {
+            for (int i = 0; i < nr_of_elements; i++)
+            {
+                UpdateProjectileInStore(in position[i], in velocity[i], ref newPosition[i]);
+
+            }
+            //SWAP
+            var holdReferenceTemp = position;
+            position = newPosition;
+            newPosition = holdReferenceTemp;
+
+        }
+
     }
 }
