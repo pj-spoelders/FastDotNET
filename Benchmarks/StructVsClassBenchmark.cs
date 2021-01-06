@@ -7,38 +7,7 @@ using System.Threading.Tasks;
 
 namespace Benchmarks
 {
-    public static class BenchUtility
-    {
-        //https://stackoverflow.com/questions/273313/randomize-a-listt
-        public static void Shuffle<T>(this IList<T> list)
-        {
-            Random rnd = new Random();
 
-            int n = list.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = rnd.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
-            }
-        }
-        public static void Shuffle<T>(this T[] array)
-        {
-            Random rnd = new Random();
-
-            int n = array.Length;
-            while (n > 1)
-            {
-                n--;
-                int k = rnd.Next(n + 1);
-                T value = array[k];
-                array[k] = array[n];
-                array[n] = value;
-            }
-        }
-    }
 
     class Position
     {
@@ -71,7 +40,7 @@ namespace Benchmarks
         public int Whatever;
     }
     //https://www.jacksondunstan.com/articles/3860
-    public class HighSpeedBenchmark
+    public class StructVsClassBenchmark
     {
 
 
