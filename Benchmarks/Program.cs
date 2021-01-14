@@ -13,17 +13,20 @@ namespace Benchmarks
             
             //demonstrates modify in place vs write result somewhere else and then replace the original (uses 2x as much memory)
             var summaryModifyInPaceVsSeparateStoreAndReplace = BenchmarkRunner.Run<ModifyInPlaceVsSeparateStore>();
-            
-            //demonstrates packed vs unpacked / array of structs vs struct of arrays (WIP)
-            //var summaryPackedVsUnpacked = BenchmarkRunner.Run<PackedVsUnpackedHotVsCold>();
 
-            //DEBUGGING
-            //var summaryModifyInPaceVsSeparateStoreAndReplace = BenchmarkRunner.Run<ModifyInPlaceVsSeparateStore>(new DebugInProcessConfig());
-            //var summaryPackedVsUnpacked = BenchmarkRunner.Run<PackedVsUnpackedHotVsCold>(new DebugInProcessConfig());
+        //demonstrates packed vs unpacked / array of structs vs struct of arrays (WIP)
+        //var summaryPackedVsUnpacked = BenchmarkRunner.Run<PackedVsUnpackedHotVsCold>();
 
-            //demonstrates string concatenation techniques
-            //var summary = BenchmarkRunner.Run<MemoryBenchmarkerDemo>();
+        //DEBUGGING
+        //var summaryModifyInPaceVsSeparateStoreAndReplace = BenchmarkRunner.Run<ModifyInPlaceVsSeparateStore>(new DebugInProcessConfig());
+        //var summaryPackedVsUnpacked = BenchmarkRunner.Run<PackedVsUnpackedHotVsCold>(new DebugInProcessConfig());
 
+        //demonstrates string concatenation techniques
+        //var summary = BenchmarkRunner.Run<MemoryBenchmarkerDemo>();
+
+
+        //SIMD
+        //https://habr.com/en/post/467689/
         }
     }
 }
